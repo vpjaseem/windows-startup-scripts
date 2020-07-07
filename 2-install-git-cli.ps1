@@ -7,3 +7,4 @@ Invoke-WebRequest -Uri $asset.browser_download_url -OutFile $installer
 $git_install_inf = "https://raw.githubusercontent.com/vpjaseem/windows-startup-scripts/master/git-installer.inf"
 $install_args = "/SP- /VERYSILENT /SUPPRESSMSGBOXES /NOCANCEL /NORESTART /CLOSEAPPLICATIONS /RESTARTAPPLICATIONS /LOADINF=""$git_install_inf"""
 Start-Process -FilePath $installer -ArgumentList $install_args -Wait
+$env:path+='C:\Program Files\Git\cmd'
