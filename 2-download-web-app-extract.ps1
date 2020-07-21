@@ -1,6 +1,6 @@
 ﻿#Download the Web App file
 cd C:\inetpub\wwwroot
-$url = "https://github.com/vpjaseem/sample-static-web-app/archive/master.zip"
+$url = "https://github.com/vpjaseem/sample-static-html-web-app/archive/master.zip"
 $output = "C:\inetpub\wwwroot\master.zip"
 $start_time = Get-Date
 
