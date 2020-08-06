@@ -19,7 +19,7 @@ function Unzip
 Unzip "C:\inetpub\wwwroot\master.zip" "C:\inetpub\wwwroot\master"
 
 #Moving Web App contents to wwwroot of IIS
-cd C:\inetpub\wwwroot\master\sample-static-web-app-master
+C:\inetpub\wwwroot\master\sample-static-html-web-app-master
 Move-Item -Path .\* -Destination C:\inetpub\wwwroot\
 cd C:\inetpub\wwwroot\
 
