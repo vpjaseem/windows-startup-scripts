@@ -32,4 +32,22 @@ Invoke-WebRequest -Uri "https://awscli.amazonaws.com/AWSCLIV2.msi" -OutFile "c:/
 # Install AWSCLIV2.msi
 Start-Process "c:/temp/AWSCLIV2.msi" /passive -wait
 
+### Downloading and Installing Notepad ++
+
+# Creating a Temp folder if it is not available
+$path = "C:/temp/"
+If (!(test-path $path))
+{
+    md C:/Temp/
+}
+cd c:/temp/
+
+# Download Notepad ++
+Invoke-WebRequest -Uri "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v7.8.8/npp.7.8.8.Installer.exe" -OutFile "c:/temp/npp.exe"
+
+# Install Notepad ++
+
+start-process "c:/temp/npp.exe" -ArgumentList '/passive /S' -Verb runas -Wait
+
+
 
