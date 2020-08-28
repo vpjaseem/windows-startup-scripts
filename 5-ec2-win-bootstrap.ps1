@@ -66,4 +66,5 @@ Invoke-WebRequest -Uri "https://the.earth.li/~sgtatham/putty/latest/w64/putty-64
 
 Start-Process "c:/temp/putty.msi" /passive -wait
 
-
+# To use this as a user data script, please use below command without #
+#iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/vpjaseem/windows-startup-scripts/master/5-ec2-win-bootstrap.ps1'))
