@@ -14,5 +14,22 @@ cd c:/temp/
 Invoke-WebRequest -Uri "https://www.python.org/ftp/python/3.8.5/python-3.8.5.exe" -OutFile "c:/temp/python.exe"
 
 # Install Python
-c:/temp/python.exe /passive InstallAllUsers=1 PrependPath=1 Include_test=0
+Start-Process "c:/temp/python.exe" -argumentlist "/passive InstallAllUsers=1 PrependPath=1 Include_test=0" -wait
+
+### Downloading and Installing AWS CLI Version 2
+
+# Creating a Temp folder if it is not available
+$path = "C:/temp/"
+If (!(test-path $path))
+{
+    md C:/Temp/
+}
+cd c:/temp/
+
+# Download AWSCLIV2.msi
+Invoke-WebRequest -Uri "https://awscli.amazonaws.com/AWSCLIV2.msi" -OutFile "c:/temp/AWSCLIV2.msi"
+
+# Install AWSCLIV2.msi
+Start-Process "c:/temp/AWSCLIV2.msi" /passive -wait
+
 
