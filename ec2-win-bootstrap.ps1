@@ -49,5 +49,21 @@ Invoke-WebRequest -Uri "https://github.com/notepad-plus-plus/notepad-plus-plus/r
 
 start-process "c:/temp/npp.exe" -ArgumentList '/passive /S' -Verb runas -Wait
 
+### Downloading and Installing PuTTY
+
+# Creating a Temp folder if it is not available
+$path = "C:/temp/"
+If (!(test-path $path))
+{
+    md C:/Temp/
+}
+cd c:/temp/
+
+# Download PuTTY
+Invoke-WebRequest -Uri "https://the.earth.li/~sgtatham/putty/latest/w64/putty-64bit-0.74-installer.msi" -OutFile "c:/temp/putty.msi"
+
+# Install PuTTY
+
+Start-Process "c:/temp/putty.msi" /passive -wait
 
 
