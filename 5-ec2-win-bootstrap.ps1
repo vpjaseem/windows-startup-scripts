@@ -66,7 +66,7 @@ Invoke-WebRequest -Uri "https://the.earth.li/~sgtatham/putty/latest/w64/putty-64
 
 Start-Process "c:/temp/putty.msi" /passive -wait
 
-### Downloading and Installing mysql-workbench
+### Downloading and Installing mysql-workbench & Visual C++
 # Creating a Temp folder if it is not available
 $path = "C:/temp/"
 If (!(test-path $path))
@@ -75,11 +75,13 @@ If (!(test-path $path))
 }
 cd c:/temp/
 
-# Download mysql-workbench
+# Download mysql-workbench & Visual C++
 Invoke-WebRequest -Uri "https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-8.0.23-winx64.msi" -OutFile "c:/temp/mysql-workbench.msi"
+Invoke-WebRequest -Uri "https://aka.ms/vs/16/release/vc_redist.x64.exe" -OutFile "c:/temp/vc_redist.x64.exe"
 
-# Install mysql-workbench
+# Install mysql-workbench & Visual C++
 Start-Process "c:/temp/mysql-workbench.msi" /passive -wait
+Start-Process "c:/temp/vc_redist.x64.exe" /passive -wait
 
 # To use this as a user data script, please use below command without # enclosed in <powershell></powershell>
 #iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/vpjaseem/windows-startup-scripts/master/5-ec2-win-bootstrap.ps1'))
