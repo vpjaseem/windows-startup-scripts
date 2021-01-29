@@ -75,13 +75,22 @@ If (!(test-path $path))
 }
 cd c:/temp/
 
+### Downloading and Installing mysql-workbench
+# Creating a Temp folder if it is not available
+$path = "C:/temp/"
+If (!(test-path $path))
+{
+    md C:/Temp/
+}
+cd c:/temp/
+
 # Download mysql-workbench & Visual C++
 Invoke-WebRequest -Uri "https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-8.0.23-winx64.msi" -OutFile "c:/temp/mysql-workbench.msi"
 Invoke-WebRequest -Uri "https://aka.ms/vs/16/release/vc_redist.x64.exe" -OutFile "c:/temp/vc_redist.x64.exe"
 
 # Install mysql-workbench & Visual C++
-Start-Process "c:/temp/mysql-workbench.msi" /passive -wait
 Start-Process "c:/temp/vc_redist.x64.exe" /passive -wait
+Start-Process "c:/temp/mysql-workbench.msi" /passive -wait
 
 # To use this as a user data script, please use below command without # enclosed in <powershell></powershell>
 #iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/vpjaseem/windows-startup-scripts/master/5-ec2-win-bootstrap.ps1'))
