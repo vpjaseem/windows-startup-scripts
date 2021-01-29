@@ -66,5 +66,20 @@ Invoke-WebRequest -Uri "https://the.earth.li/~sgtatham/putty/latest/w64/putty-64
 
 Start-Process "c:/temp/putty.msi" /passive -wait
 
+### Downloading and Installing mysql-workbench
+# Creating a Temp folder if it is not available
+$path = "C:/temp/"
+If (!(test-path $path))
+{
+    md C:/Temp/
+}
+cd c:/temp/
+
+# Download mysql-workbench
+Invoke-WebRequest -Uri "https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-8.0.23-winx64.msi" -OutFile "c:/temp/mysql-workbench.msi"
+
+# Install mysql-workbench
+Start-Process "c:/temp/mysql-workbench.msi" /passive -wait
+
 # To use this as a user data script, please use below command without # enclosed in <powershell></powershell>
 #iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/vpjaseem/windows-startup-scripts/master/5-ec2-win-bootstrap.ps1'))
